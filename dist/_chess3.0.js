@@ -14753,6 +14753,11 @@ ${contextLines.join("\n")}`;
           try {
             document.execCommand("copy");
             playSound("computer-mouse-click");
+            const untrimmedFEN = textarea.value;
+            const formattedFEN = untrimmedFEN.trim().replace(/\s+/g, "_");
+            const color = untrimmedFEN.includes(" w ") ? "white" : "black";
+            const url = `https://lichess.org/embed/analysis?fen=${formattedFEN}&color=${color}`;
+            window.location = url;
             return true;
           } catch (err) {
             playSound("Error");
