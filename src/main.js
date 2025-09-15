@@ -988,9 +988,18 @@ function reload() {
         textarea.style.left = "-9999px";
         document.body.appendChild(textarea);
         textarea.select();
+
         try {
             document.execCommand('copy');
-            playSound("computer-mouse-click")
+            playSound("computer-mouse-click");
+
+            const untrimmedFEN = chess.fen();
+            const formattedFEN = untrimmedFEN.trim().replace(/\s+/g, "_");
+            const color = untrimmedFEN.includes(" w ") ? "white" : "black"; // Determine which side to move
+            const url = `https://lichess.org/embed/analysis?fen=${formattedFEN}&color=${color}`;
+            window.location=url;
+            window.parent.document.getElementById('returnFromLichessButton').style.visibility = "visible";
+
             return true;
         } catch (err) {
             playSound("Error")

@@ -24,6 +24,9 @@
     }
 </script>
 <script src="_persistence.js"></script>
+
+<input type="button" id="returnFromLichessButton" value="Go back" style="visibility: hidden" onclick="analysisBoard.src = analysisBoard.src; this.style.visibility='hidden';">
+
 <iframe id="analysisBoard" style="visibility: hidden"></iframe>
 <script>
     (function initIframe() {

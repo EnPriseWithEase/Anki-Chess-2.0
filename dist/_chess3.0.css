@@ -780,3 +780,9 @@ cg-board piece.fading {
 .cg-wrap coords.ranks:nth-child(odd) coord:nth-child(even) {
   color: var(--coord-black);
 }
+#returnFromLichessButton {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  z-index: 101;
+}

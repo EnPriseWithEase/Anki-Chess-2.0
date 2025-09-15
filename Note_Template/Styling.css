@@ -21,6 +21,13 @@ iframe {
     border: 0;
 }
 
+#returnFromLichessButton {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    z-index: 101;
+}
+
 /* Styling for android devices */
 .mobile iframe {
     height: 99vh;
