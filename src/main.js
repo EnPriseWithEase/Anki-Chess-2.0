@@ -116,7 +116,7 @@ function extendPuzzleTime(additionalTime) {
 }
 
 function startPuzzleTimeout(delay) {
-    if (!config.timerScore) document.documentElement.style.setProperty('--timer-color', config.randomOrientation ? "#66AAAA" : state.opponentColour);
+    if (!config.timerScore) document.documentElement.style.setProperty('--timer-color', state.opponentColour);
     document.getElementsByClassName("cg-wrap")[0].classList.add('timerMode');
     puzzleTimeout = setTimeout(handleOutOfTime, delay);
     totalTime = config.timer; // Set initial total time only once
@@ -233,8 +233,8 @@ if (state.boardRotation === "white") {
 
 state.playerColour = state.boardRotation;
 state.opponentColour = state.boardRotation === "white" ? "black" : "white";
-document.documentElement.style.setProperty('--border-color', config.randomOrientation ? "grey" : state.playerColour);
-document.documentElement.style.setProperty('--player-color', config.randomOrientation ? "grey" : state.playerColour);
+document.documentElement.style.setProperty('--border-color', state.playerColour);
+document.documentElement.style.setProperty('--player-color', state.playerColour);
 document.documentElement.style.setProperty('--opponent-color', state.opponentColour);
 
 // --- Core Functions ---
@@ -726,7 +726,7 @@ function reload() {
 
     cg = Chessground(board, {
         fen: state.ankiFen,
-        orientation: config.randomOrientation ? ['black', 'white'][Math.floor(Math.random() * 2)] : state.playerColour,
+        orientation: config.mirror ? "white" : state.playerColour,
         turnColor: toColor(chess),
         events: {
             select: (key) => {
