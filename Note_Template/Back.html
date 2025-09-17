@@ -36,13 +36,11 @@
         let errorTrack;
         let mirrorState;
         let pgnPath = null;
-        if (Persistence.isAvailable()) {
-            errorTrack = Persistence.getItem("errorTrack");
-            mirrorState = Persistence.getItem("mirrorState");
-            timeoutId = Persistence.getItem("timeoutId");
-            pgnPath = Persistence.getItem("pgnPath");
-            Persistence.clear();
-        }
+            errorTrack = sessionStorage.getItem("errorTrack");
+            mirrorState = sessionStorage.getItem("mirrorState");
+            timeoutId = sessionStorage.getItem("timeoutId");
+            pgnPath = sessionStorage.getItem("pgnPath");
+            sessionStorage.clear();
         clearTimeout(timeoutId);
         let PGN = `{{text:PGN}}`.replace("[%eval", "[ %eval");
         PGN = encodeURIComponent(PGN);
