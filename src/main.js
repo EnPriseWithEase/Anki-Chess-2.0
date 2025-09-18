@@ -824,7 +824,8 @@ function reload() {
             pgnViewer.highlightCurrentMove(state.pgnPath.split(','));
             cg.set({ animation: { enabled: true} })
         }
-    } else if (!chess.isGameOver() && config.flipBoard) {
+    }
+    if (!chess.isGameOver() && config.flipBoard) {
         playAiMove(cg, chess, 300);
     }
     drawArrows(cg, chess);
