@@ -117,7 +117,7 @@ function extendPuzzleTime(additionalTime) {
 
 function startPuzzleTimeout(delay) {
     if (!config.timerScore) document.documentElement.style.setProperty('--timer-color', state.opponentColour);
-    document.getElementsByClassName("cg-wrap")[0].classList.add('timerMode');
+    //document.getElementsByClassName("cg-wrap")[0].classList.add('timerMode');
     puzzleTimeout = setTimeout(handleOutOfTime, delay);
     totalTime = config.timer; // Set initial total time only once
     let usedTime = config.timer - delay;
